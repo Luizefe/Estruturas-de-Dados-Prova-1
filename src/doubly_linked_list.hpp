@@ -77,7 +77,17 @@ void DoublyLinkedList<T>::push_back(const T& value) {
 
 // O(1)  constante
 template <class T>
-void DoublyLinkedList<T>::pop_front() {}
+void DoublyLinkedList<T>::pop_front() {
+  if (empty()){
+    throw std:: out_of_range("lista vazia");
+  }
+  auto old_head= head;
+  head= head-> next;
+   old_head-> next= nullptr;
+   delete old_head;
+   _size--;
+
+}
 
 // contante O( 1 )
 template <class T>
